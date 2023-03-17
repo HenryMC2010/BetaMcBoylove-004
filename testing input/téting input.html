@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Menu Toggle Icon</title>
+    <style>
+      *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+    .toggle{
+        background: #ffd60a;
+        padding: 10px 15px;
+        cursor: pointer;
+    }
+    
+    .toggle i{
+        font-size: 40px;
+        transition: .1s;
+    }
+    .menu-box{
+      top: 0;
+      left: 0;
+      min-height: 100vh;
+      width: 100%;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+    }
+    .index-menu-box{
+      position: absolute;
+      height: 50%;
+      width: 30vh;
+      background: #636262;
+      text-align: center;
+      display: block;
+      text-decoration: none;
+      color: white;
+      padding: 30px 50px;
+      border-radius: 5px;
+    }
+    .index-menu-box a{
+      font-size: 1.2em;
+      text-align: center;
+      display: block;
+      text-decoration: none;
+      color: white;
+      transform: translateY(50px);
+      padding: 10px 20px;
+    }
+    .index-menu-box button{
+      transform: translateY(10.4vh);
+      padding: 5px 50px;
+      background: red;
+      border: none;
+      border-radius: 5px;
+      font-size: 2em;cursor: pointer;
+    }
+    </style>
+</head>
+<body>
+
+    <div class="toggle"><i class="fa fa-bars"></i></div>
+
+    <script>
+      $(window).on('load', function(){
+          $(".menu-box").css("display", "none")
+      })
+        let btn = document.querySelector(".toggle");
+        let icon = btn.querySelector(".fa-bars");
+
+        btn.onclick = function (){
+            if(icon.classList.contains("fa-bars")){
+                icon.classList.replace("fa-bars", "fa-times");
+                $(".menu-box").fadeIn(100);
+            }
+            else{
+                icon.classList.replace("fa-times", "fa-bars");
+                $(".menu-box").fadeOut(100)
+            }
+        }
+        function menu_close(){
+          $(".menu-box").fadeOut(100)
+        }
+    </script>
+    <div class="menu-box">
+      <div class="index-menu-box">
+        <h2>Beta McBoylove</h2>
+        <a href="#">home <span></span></a> 
+        <a href="#">Manga <span></span></a> 
+        <a href="#">Official-video <span></span></a> 
+        <a href="#">credits <span></span></a>
+        <a href="#">feedback <span></span></a>
+        <a href="#">support <span></span></a>
+        <button onclick="menu_close()">Close</button>
+      </div>
+    </div>
+</body>
+</html>

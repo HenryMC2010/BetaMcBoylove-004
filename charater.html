@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>McBoylove ‖ Charater info</title>
+    <link rel="icon" href="/icon.ico">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <style>
+
+        *{
+            padding: 0;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            box-sizing: none;
+        }
+        body{
+            background: rgb(47, 53, 73);
+        }
+
+        #text2{
+            z-index: 10;
+        }
+
+        /*navigation*/
+        header{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 95%;
+            padding: 10px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+        
+        .logo {
+            width: 5%;
+            font-size: 2em;
+            color: #fff;
+            user-select: none;
+            background: #969696;
+            padding: 3px;
+            border-radius: 5px;
+        }
+        
+        .navigation a{
+            position: relative;
+            font-size: 1em;
+            color: #fff;
+            font-weight: 600;
+            text-decoration: none;
+            margin-left: 20px;
+            padding: 6px 15px;
+            transition: .5s;
+        }
+        
+        .navigation a:hover,
+        .navigation a.active{
+            color: #333;
+        }
+        
+        .navigation a span{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:#fff;
+            border-radius: 30px;
+            z-index: -1;
+            transform: scale(0);
+            transition: .5s;
+            opacity: 0;
+        }
+        
+        .navigation a:hover span,
+        .navigation a.active span{
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .container{
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            text-align: center;
+        }
+        .parallax h2{
+            z-index: 10;
+            font-size: 3em;
+            text-decoration: none;
+            color: #ffffff;
+            background: rgb(85, 99, 133);
+            border-radius: 10px;
+        }
+        .img{
+            width: 100%;
+            filter: blur(5px);
+        }
+        .content{
+            padding: 0;
+            margin-left: 50px;
+            width: 100%;
+            z-index: 10;
+            transform: translateY(650px);
+            position:relative;
+            background: rgb(47, 53, 73);
+        }
+        .charater{
+            box-shadow: #364157 20px 20px;
+            top: 0;
+            left: 0;
+            margin-left: 100px;
+            position: absolute;
+            border-radius: 10px;
+            color: #ffffff;
+            padding: 1px 90px;
+            background: #474f79;
+            display: flex;
+            flex-direction: column;
+        }
+        .charater h2{
+            font-size: 2em;
+            margin-left: 20px;
+        }
+        .charater p{
+            font-size: 1.5em;
+            margin-left: 10px;
+        }
+        .image-content{
+            width: 40%;
+            margin-left:1000px;
+            transform: translateY(-100px);
+            border-radius: 10px;
+            border: rgb(80, 89, 136) solid 10px;
+            box-shadow: #3a4163 20px 20px;
+        }
+        .background{
+            position: absolute;
+            width: 100%;
+            transform: translateY(-460px);
+            filter: blur(50px);
+            z-index: -100;
+        }
+
+
+
+        /*line*/
+
+        .line{
+            transform: translateY(124vh);
+            margin-left: 84vh;
+            color: white;
+            position: absolute;
+            width: 180px;
+            border-bottom: 1px #ffffff solid;
+        }
+
+
+        /*vertical style*/
+        @media (max-width: 600px) {
+            .img{
+                height: auto;
+                z-index: -1;
+        }
+            .logo {
+                width: 20%;
+                font-size: 2em;
+                color: #fff;
+                user-select: none;
+                background: #969696;
+                padding: 3px;
+                border-radius: 5px;
+            }
+            .navigation{
+                transform: translateX(-40px);
+            }
+            .navigation span.background{
+                position: absolute;
+                background: #364157;
+                padding: 80px 65px;
+                transform: translateY(-5px);
+                z-index: -1;
+            }
+            
+            .navigation a{
+                display: flex;
+                margin: 2px;
+            }
+
+
+            .charater{
+                font-size: 0.6em;
+                margin-left: 0;
+            }
+            .charater h2{
+                margin-left: 10px;   
+            }
+            .charater p{
+                transform: translateX(-80px);
+            }
+            .charater h2 span {
+                background: #fff;
+                z-index: 10;
+                position: absolute;
+            }
+            .image-content{
+                position: fixed;
+                margin-left: 0;
+                width: 20%;
+                transform: translateY(-10px);
+            }
+            .parallax{
+                margin-top: 40vh;
+                transform: translateX(1);
+            }
+
+
+
+            /*line*/
+            .line{
+                margin-left: 120px;
+            }
+        }
+
+        /*scroll-bar style*/
+        ::-webkit-scrollbar{
+            width: 4px;
+            height: 4px;
+            transition: .2s;
+        }
+        ::-webkit-scrollbar-thumb{
+            background: #47506f;
+        }
+        ::-webkit-scrollbar-button{
+            background: #2f3549;
+        }
+        ::-webkit-scrollbar-track{
+            background: #2f3549;
+        }
+        /*Scrollbar hover*/
+        ::-webkit-scrollbar:hover{
+            width: 10px;
+            height: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover{
+            background: #62678d;
+        }
+        ::-webkit-scrollbar-track:hover{
+            background: #3d3f57;
+            width: 500px;
+        }
+
+
+        /* loader */
+  .loader-wrapper {
+    z-index: 101;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #242f3f;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeout;
+  }
+  .loader {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    border: 4px solid #Fff;
+    animation: loader 2s infinite ease;
+  }
+  .loader-inner {
+    vertical-align: top;
+    display: inline-block;
+    width: 100%;
+    background-color: #fff;
+    animation: loader-inner 2s infinite ease-in;
+  }
+  @keyframes loader {
+    0% { transform: rotate(0deg);}
+    25% { transform: rotate(180deg);}
+    50% { transform: rotate(180deg);}
+    75% { transform: rotate(360deg);}
+    100% { transform: rotate(360deg);}
+  }
+  
+  @keyframes loader-inner {
+    0% { height: 0%;}
+    25% { height: 0%;}
+    50% { height: 100%;}
+    75% { height: 100%;}
+    100% { height: 0%;}
+  }
+
+
+    </style>
+    <script>
+        $(window).on("load",function(){
+            $(".loader-wrapper").delay(1000).fadeOut('slow');
+          document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+        });
+        $(document).ready(function(){
+            $("a").click(function(){
+                $(".loader-wrapper").fadeIn('slow');
+            });
+        });
+    </script>
+</head>
+<body>
+    <!--loading screen-->
+    <div class="loader-wrapper">
+        <span class="loader"><span class="loader-inner"></span></span>
+      </div>
+    <div class="header">
+    <div class="container">
+        <div class="parallax">
+            <h2 id="text2">All boylove Charater</h2>
+        </div>
+    </div>
+    </div>
+        <!-- Navigation -->
+    <header>
+        <img src="source.scr/website image.png" class="logo">
+        <nav class="navigation">
+            <a href="index.html">Home<span></span></a>
+            <a href="Index-list.html">Manga<span></span></a>
+            <a href="Official-video.html">Official video<span></span></a>
+            <a href="charater.html" class="active">Charater<span></span></a>
+            <a href="feedback-website.html">Feedback<span></span></a>
+            <a href="support.html">Support<span></span></a>
+        </nav>
+    </header>
+    <img src="/fd3eef9c3487afbe6aa4c066fe5c529d_3083033666318702248.png" class="background">
+    <div class="content">
+        <div class="charater">
+            <h2>Beta Website Header<span></span></h2>
+            <p>Beta website description dbhhrwfejmfrnfgbtg5trftvgygt453rfvgrtfrgtgrfedcfgterfwdc<br> fbgtrgyh3jidmejfnv brgyhujdiemfvn brhfuhdejicmfvngbthrfhddjfhbgrhujdekmf vn<br> gufugryheu This people is crazy.</p>
+            <img src="R (1).jpg" class="image-content">
+        </div>
+        <!--line-->
+        <div class="line"></div>
+        <!--line-->
+<!--taesung-->
+        <div class="charater" style="margin-top: 130vh">
+            <h2>Beta Website Header<span></span></h2>
+            <p>Beta website description dbhhrwfejmfrnfgbtg5trftvgygt453rfvgrtfrgtgrfedcfgterfwdc<br> fbgtrgyh3jidmejfnv brgyhujdiemfvn brhfuhdejicmfvngbthrfhddjfhbgrhujdekmf vn<br> gufugryheu This people is crazy.</p>
+            <img src="/parallax scrolling website/R.jpg" class="image-content">
+        </div>
+
+    </div>
+    <img src="Untitled.png" class="img">
+    <!--<script src="charater's script"></script>-->
+</body>
+</html>

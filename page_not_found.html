@@ -1,0 +1,89 @@
+<html>
+<head>
+
+<style type=text/css>
+*{
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        body{
+            background: #242f3f;
+        }
+        h1, h2{
+            left: 0;
+            top: 0;
+            color: white;
+            z-index: 10;
+            margin: 0 10px;
+            text-shadow: #4a5f80 2px 2px;
+        }
+	.content-fadein{
+            height: 100%;
+            width: 100%;
+            min-height: 100vh;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+            display:flex;
+            position: absolute;
+            backdrop-filter: blur(100px);
+            background: transparent;
+            box-shadow: #62678d 20px 20px;
+        }
+        .content-error{
+            background: #4a5f80;
+            padding: 10px 10px;
+            border-radius: 5px;
+        }
+        button{
+            position: absolute;
+            padding: 10px 100px;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            background: #324157;
+            margin: 30px 0;
+            transform: translateX(-130px);
+            font-size: 1em;
+        }
+        /*scroll-bar style*/
+        ::-webkit-scrollbar{
+            width: 4px;
+            height: 4px;
+            transition: .2s;
+        }
+        ::-webkit-scrollbar-thumb{
+            background: #47506f;
+        }
+        ::-webkit-scrollbar-button{
+            background: #2f3549;
+        }
+        ::-webkit-scrollbar-track{
+            background: #2f3549;
+        }
+        /*Scrollbar hover*/
+        ::-webkit-scrollbar:hover{
+            width: 10px;
+            height: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover{
+            background: #62678d;
+        }
+        ::-webkit-scrollbar-track:hover{
+            background: #3d3f57;
+            width: 500px;
+        }
+</style>
+</head>
+
+<body>
+
+<div class="content-fadein">
+    <div class="content-error">
+        <h1>Error</h1> <br> <h2>The site not avalable or moved a other place</h2>
+        <button onclick="history.go(-1)" value="Go Back">Go Back <span></span></button>
+    </div>
+</div>
+
+</body>
+</html>
